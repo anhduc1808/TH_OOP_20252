@@ -1,0 +1,8 @@
+
+6.1 Câu hỏi:
+
+1. Điều gì xảy ra nếu người dùng chọn "Cancel"?
+   - Nếu người dùng chọn "Cancel", JOptionPane.showConfirmDialog sẽ trả về JOptionPane.CANCEL_OPTION (giá trị 2), và chương trình sẽ hiển thị "You've chosen: Cancel".
+
+2. Làm thế nào để tùy chỉnh các tùy chọn cho người dùng, ví dụ chỉ có hai tùy chọn: "Yes" và "No", HOẶC "I do" và "I don't"?
+   - Để tùy chỉnh các tùy chọn, sử dụng JOptionPane.showOptionDialog thay vì showConfirmDialog. Truyền một mảng Object[] cho tham số options, chẳng hạn như new Object[]{"Yes", "No"} hoặc new Object[]{"I do", "I don't"}. Điều này cho phép tùy chỉnh đầy đủ văn bản của các nút.

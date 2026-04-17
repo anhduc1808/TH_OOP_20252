@@ -1,0 +1,8 @@
+./hust/soict/hedspi/test/disc/DigitalVideoDiscWrapper.java
+./hust/soict/hedspi/test/disc/TestPassingParameter.java
+./hust/soict/hedspi/test/cart/CartTest.java
+./hust/soict/hedspi/test/store/StoreTest.java
+./hust/soict/hedspi/aims/Aims.java
+./hust/soict/hedspi/aims/disc/DigitalVideoDisc.java
+./hust/soict/hedspi/aims/cart/Cart.java
+./hust/soict/hedspi/aims/store/Store.java

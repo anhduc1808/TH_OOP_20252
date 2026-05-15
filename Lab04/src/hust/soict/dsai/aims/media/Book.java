@@ -6,7 +6,7 @@ public class Book {
     private int id;
     private String title;
     private String category;
-    private float cost;
+    private float costs;
     private ArrayList<String> authors = new ArrayList<String>();
 
     public Book() {
@@ -16,7 +16,7 @@ public class Book {
         this.id = id;
         this.title = title;
         this.category = category;
-        this.cost = cost;
+        this.costs = cost;
     }
 
     public int getId() {
@@ -44,11 +44,11 @@ public class Book {
     }
 
     public float getCost() {
-        return cost;
+        return costs;
     }
 
     public void setCost(float cost) {
-        this.cost = cost;
+        this.costs = cost;
     }
 
     public void addAuthor(String authorName) {

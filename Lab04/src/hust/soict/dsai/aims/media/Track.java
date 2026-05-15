@@ -1,6 +1,6 @@
 package hust.soict.dsai.aims.media;
 
-public class Track implements Playable {
+public class Track {
     private String title;
     private int length;
 
@@ -41,13 +41,5 @@ public class Track implements Playable {
         return "Track{title='" + title + "', length=" + length + "}";
     }
 
-    @Override
-    public void play() {
-        if (length <= 0) {
-            System.out.println("Cannot play track: " + title + " (invalid length: " + length + ")");
-            return;
-        }
-        System.out.println("Playing track: " + title);
-        System.out.println("Track length: " + length);
-    }
+    
 }

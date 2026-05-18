@@ -41,12 +41,22 @@ public class Cart {
     public void print() {
         System.out.println("**************************CART***********************");
         System.out.println("Ordered Items:");
-        for (Media m : itemsOrdered) {
+
+        ArrayList<Media> sorted = new ArrayList<Media>(itemsOrdered);
+        sorted.sort((a, b) -> {
+            int cmpTitle = a.getTitle().compareToIgnoreCase(b.getTitle());
+            if (cmpTitle != 0) return cmpTitle;
+            return Float.compare(b.getCost(), a.getCost());
+        });
+
+
+        for (Media m : sorted) {
             System.out.println(m);
         }
         System.out.println("Total cost: " + totalCost());
         System.out.println("*****************************************************");
     }
+
 
     public void searchByID(int id) {
         boolean found = false;

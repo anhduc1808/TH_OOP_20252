@@ -14,13 +14,8 @@ public class CartTest {
 
 
         cart.addMedia(dvd1);
-        cart.addMedia(dvd2); // should NOT be added if equals() works by title
+        cart.addMedia(dvd2); 
 
-        // Test unique element for Disc/Track-related equality is covered by Media.equals() logic.
-        // (Trong Lab04 hiện tại Track không kế thừa Media nên không thể đưa vào Cart.)
-
-
-        // Print cart for manual verification
         cart.print();
     }
 }

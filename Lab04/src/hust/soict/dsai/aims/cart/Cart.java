@@ -6,6 +6,11 @@ import java.util.ArrayList;
 public class Cart {
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 
+    public ArrayList<Media> getItems() {
+        return itemsOrdered;
+    }
+
+
     public void addMedia(Media media) {
         if (media == null) return;
         if (itemsOrdered.contains(media)) {

@@ -1,6 +1,7 @@
 package hust.soict.hedspi.aims;
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.*;
+import hust.soict.hedspi.aims.screen.StoreScreen;
 import hust.soict.hedspi.aims.store.Store;
 
 import java.util.*;
@@ -15,41 +16,7 @@ public class Aims {
 		// Init add media to the store
 		initSetup();
 		
-		boolean exit = false;
-		
-		//CLI
-		
-		while (exit == false)
-		{
-			showMenu();
-			
-			Scanner scanner = new Scanner(System.in);
-			int option = scanner.nextInt();
-			scanner.nextLine();
-			
-			switch (option) {
-				case 0:
-					exit = true;
-					System.out.println("Good bye!");
-					break;
-				case 1:
-					clearConsole();
-					storeMenu(scanner);
-					break;
-				case 2:
-					clearConsole();
-					updateStoreMenu(scanner);
-					break;
-				case 3:
-					clearConsole();
-                    cartMenu(scanner);
-                    break;
-                default:
-                	clearConsole();
-                	System.out.println("Invalid option, please choose again.");
-                	break;
-			}
-		}
+		new StoreScreen(store, cart);
 		
 	}
 	

@@ -1,0 +1,31 @@
+1.3. Compare Swing and AWT elements
+
+1. Top-level containers:
+   - AWT: Frame is the top-level container.
+   - Swing: JFrame is the top-level container (extends Frame).
+
+2. Component class names:
+   AWT          ->  Swing
+   Frame        ->  JFrame
+   Label        ->  JLabel
+   TextField    ->  JTextField
+   Button       ->  JButton
+   Panel        ->  JPanel
+   Checkbox     ->  JCheckBox
+   List         ->  JList
+   Choice       ->  JComboBox
+   Scrollbar    ->  JScrollBar
+
+3. Content pane:
+   - In AWT, components are added directly to the Frame.
+   - In Swing, components must be added to the content pane of the JFrame (getContentPane()),
+     not directly to the JFrame, because Swing components are lightweight.
+
+4. Look and feel:
+   - AWT uses native platform components (heavyweight).
+   - Swing uses lightweight components (pure Java) with pluggable look and feel.
+
+5. Additional features:
+   - Swing provides more components (JTable, JTree, JSpinner, etc.).
+   - Swing supports MVC architecture.
+   - Swing supports keyboard shortcuts, tooltips, and accessibility.

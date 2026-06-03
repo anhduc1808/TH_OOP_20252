@@ -1,5 +1,7 @@
 package hust.soict.hedspi.aims.media;
 
+import hust.soict.hedspi.aims.exception.PlayerException;
+
 public class Track implements Playable {
 	
 	private String title;
@@ -22,7 +24,14 @@ public class Track implements Playable {
 		System.out.println("Playing track: " + this.getTitle());
 		System.out.println("Track length: " + this.getLength());
 	}
-	
+
+	public void playGUI() throws PlayerException {
+		if (this.getLength() <= 0) {
+			throw new PlayerException("Track " + this.getTitle() + " has invalid length!");
+		}
+		play();
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == this) {

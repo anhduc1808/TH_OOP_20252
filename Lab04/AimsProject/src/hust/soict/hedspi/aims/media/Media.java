@@ -2,6 +2,8 @@ package hust.soict.hedspi.aims.media;
 
 import java.util.Comparator;
 
+import hust.soict.hedspi.aims.exception.PlayerException;
+
 public abstract class Media implements Comparable<Media>{
 	
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
@@ -63,7 +65,7 @@ public abstract class Media implements Comparable<Media>{
         System.out.println("Playing media");
     }
     
-    public void playGUI() {
+    public void playGUI() throws PlayerException {
         play();
     }
     
@@ -73,10 +75,17 @@ public abstract class Media implements Comparable<Media>{
     	if (obj == this) {
     		return true;
     	}
-    	if (!(obj instanceof Media)) {
+    	if (obj == null || !(obj instanceof Media)) {
     		return false;
     	}
-    	return ((Media)obj).getTitle() == this.getTitle();
+    	try {
+    		Media other = (Media) obj;
+    		return this.title != null && this.title.equals(other.getTitle());
+    	} catch (ClassCastException e) {
+    		return false;
+    	} catch (NullPointerException e) {
+    		return false;
+    	}
     }
     
     @Override

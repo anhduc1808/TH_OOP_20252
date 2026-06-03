@@ -17,13 +17,11 @@ public class Cart {
         return itemsOrdered;
     }
 
-    public int addMedia(Media media) {
+    public int addMedia(Media media) throws Exception {
         if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
-            System.out.println("The cart is almost full!");
-            return 0;
+            throw new Exception("The cart is almost full!");
         } else if (itemsOrdered.contains(media)){
-            System.out.println(media.getTitle() + " is already in the cart!");
-            return 0;
+            throw new Exception(media.getTitle() + " is already in the cart!");
         } else {
             itemsOrdered.add(media);
             System.out.println(media.getTitle() + " has been added!");

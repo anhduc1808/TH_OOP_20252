@@ -1,5 +1,7 @@
 package hust.soict.hedspi.aims.media;
 
+import hust.soict.hedspi.aims.exception.PlayerException;
+
 public class DigitalVideoDisc extends Disc implements Playable {
 	
 	public DigitalVideoDisc(String title) {
@@ -27,6 +29,13 @@ public class DigitalVideoDisc extends Disc implements Playable {
 	public void play() {
 		System.out.println("Playing DVD: " + this.getTitle());
 		System.out.println("DVD length: " + this.getLength());
+	}
+
+	public void playGUI() throws PlayerException {
+		if (this.getLength() <= 0) {
+			throw new PlayerException("DVD " + this.getTitle() + " has invalid length!");
+		}
+		play();
 	}
 	
 }

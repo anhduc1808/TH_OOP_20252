@@ -10,6 +10,8 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import javax.swing.JOptionPane;
+
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
@@ -38,33 +40,41 @@ public class MediaStore extends JPanel {
 
         JButton addToCart = new JButton("Add to cart");
         addToCart.addActionListener(e -> {
-            cart.addMedia(media);
+            try {
+                cart.addMedia(media);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
         });
         buttonPanel.add(addToCart);
 
         if (media instanceof Playable) {
             JButton play = new JButton("Play");
             play.addActionListener(e -> {
-                media.playGUI();
+                try {
+                    media.playGUI();
 
-                JDialog playDialog = new JDialog();
-                playDialog.setTitle("Playing: " + media.getTitle());
-                playDialog.setSize(400, 150);
-                playDialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+                    JDialog playDialog = new JDialog();
+                    playDialog.setTitle("Playing: " + media.getTitle());
+                    playDialog.setSize(400, 150);
+                    playDialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 
-                JPanel content = new JPanel();
-                content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
-                JLabel playingLabel = new JLabel("Now Playing: " + media.getTitle());
-                playingLabel.setAlignmentX(CENTER_ALIGNMENT);
-                content.add(playingLabel);
+                    JPanel content = new JPanel();
+                    content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+                    JLabel playingLabel = new JLabel("Now Playing: " + media.getTitle());
+                    playingLabel.setAlignmentX(CENTER_ALIGNMENT);
+                    content.add(playingLabel);
 
-                JButton close = new JButton("OK");
-                close.setAlignmentX(CENTER_ALIGNMENT);
-                close.addActionListener(ev -> playDialog.dispose());
-                content.add(close);
+                    JButton close = new JButton("OK");
+                    close.setAlignmentX(CENTER_ALIGNMENT);
+                    close.addActionListener(ev -> playDialog.dispose());
+                    content.add(close);
 
-                playDialog.add(content);
-                playDialog.setVisible(true);
+                    playDialog.add(content);
+                    playDialog.setVisible(true);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
             });
             buttonPanel.add(play);
         }

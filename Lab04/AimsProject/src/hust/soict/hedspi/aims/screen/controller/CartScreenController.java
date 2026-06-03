@@ -114,12 +114,19 @@ public class CartScreenController {
     private void btnPlayPressed(ActionEvent event) {
         Media selected = tblMedia.getSelectionModel().getSelectedItem();
         if (selected instanceof Playable) {
-            selected.playGUI();
+            try {
+                selected.playGUI();
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Playing: " + selected.getTitle());
-            alert.setHeaderText("Now Playing: " + selected.getTitle());
-            alert.showAndWait();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Playing: " + selected.getTitle());
+                alert.setHeaderText("Now Playing: " + selected.getTitle());
+                alert.showAndWait();
+            } catch (Exception ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(ex.getMessage());
+                alert.showAndWait();
+            }
         }
     }
 

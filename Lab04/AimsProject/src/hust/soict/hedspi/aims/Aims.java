@@ -10,8 +10,12 @@ public class Aims {
     private static Cart cart = new Cart();
 
     public static void main(String[] args) {
-        initSetup();
-        new StoreScreen(store, cart);
+        try {
+            initSetup();
+            new StoreScreen(store, cart);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 	
 	

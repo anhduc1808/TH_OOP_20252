@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefWidth="1024" prefHeight="768">
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="View Store"/>
+                    <MenuItem text="Update Store"/>
+                </Menu>
+                <Menu text="Options">
+                    <MenuItem text="View Cart"/>
+                </Menu>
+            </MenuBar>
+            <Label text="CART" padding="0 0 0 10">
+                <font>
+                    <Font size="50"/>
+                </font>
+                <textFill>
+                    <Color brightness="1.0" hue="180.0" saturation="1.0"/>
+                </textFill>
+            </Label>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="10" padding="10 0 0 10">
+            <HBox alignment="CENTER_LEFT" spacing="10" padding="10 0 10 0">
+                <Label text="Filter:"/>
+                <TextField fx:id="tfFilter"/>
+                <fx:define>
+                    <ToggleGroup fx:id="filterCategory"/>
+                </fx:define>
+                <RadioButton text="By ID" selected="true" toggleGroup="$filterCategory"/>
+                <RadioButton text="By Title" toggleGroup="$filterCategory"/>
+            </HBox>
+            <TableView fx:id="tblMedia" columnResizePolicy="CONSTRAINED_RESIZE_POLICY">
+                <columns>
+                    <TableColumn text="Title" fx:id="colTitle"/>
+                    <TableColumn text="Category" fx:id="colCategory"/>
+                    <TableColumn text="Cost" fx:id="colCost"/>
+                </columns>
+            </TableView>
+            <ButtonBar>
+                <buttons>
+                    <Button text="Play" fx:id="btnPlay"/>
+                    <Button text="Remove" fx:id="btnRemove"/>
+                </buttons>
+            </ButtonBar>
+        </VBox>
+    </center>
+    <right>
+        <VBox alignment="TOP_CENTER" spacing="10" padding="50 10 0 10">
+            <Label text="Total:"/>
+            <Label fx:id="totalCostLabel" text="0.0 $">
+                <font>
+                    <Font size="20"/>
+                </font>
+            </Label>
+            <Button text="Place Order" fx:id="btnPlaceOrder"/>
+        </VBox>
+    </right>
+</BorderPane>

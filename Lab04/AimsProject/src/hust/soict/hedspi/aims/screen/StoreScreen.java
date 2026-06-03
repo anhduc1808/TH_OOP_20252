@@ -21,6 +21,12 @@ import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
 import hust.soict.hedspi.aims.store.Store;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 public class StoreScreen extends JFrame {
     private Store store;
     private Cart cart;
@@ -41,6 +47,11 @@ public class StoreScreen extends JFrame {
         setVisible(true);
     }
 
+    private void openCartScreen() {
+        CartScreen cartScreen = new CartScreen(cart, store);
+        cartScreen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+
     private JPanel createNorth() {
         JPanel north = new JPanel();
         north.setLayout(new BorderLayout());
@@ -53,13 +64,26 @@ public class StoreScreen extends JFrame {
         JMenu menu = new JMenu("Options");
 
         JMenu smUpdateStore = new JMenu("Update Store");
-        smUpdateStore.add(new JMenuItem("Add Book"));
-        smUpdateStore.add(new JMenuItem("Add CD"));
-        smUpdateStore.add(new JMenuItem("Add DVD"));
+        JMenuItem addBookItem = new JMenuItem("Add Book");
+        addBookItem.addActionListener(e -> new AddBookToStoreScreen(store));
+        smUpdateStore.add(addBookItem);
+        JMenuItem addCDItem = new JMenuItem("Add CD");
+        addCDItem.addActionListener(e -> new AddCompactDiscToStoreScreen(store));
+        smUpdateStore.add(addCDItem);
+        JMenuItem addDVDItem = new JMenuItem("Add DVD");
+        addDVDItem.addActionListener(e -> new AddDigitalVideoDiscToStoreScreen(store));
+        smUpdateStore.add(addDVDItem);
 
         menu.add(smUpdateStore);
         menu.add(new JMenuItem("View store"));
-        menu.add(new JMenuItem("View cart"));
+        JMenuItem viewCartItem = new JMenuItem("View cart");
+        viewCartItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openCartScreen();
+            }
+        });
+        menu.add(viewCartItem);
 
         JMenuBar menuBar = new JMenuBar();
         menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));

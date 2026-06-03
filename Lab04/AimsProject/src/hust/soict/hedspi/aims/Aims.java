@@ -4,21 +4,15 @@ import hust.soict.hedspi.aims.media.*;
 import hust.soict.hedspi.aims.screen.StoreScreen;
 import hust.soict.hedspi.aims.store.Store;
 
-import java.util.*;
-
 public class Aims {
-	
-	private static Store store = new Store();
+
+    private static Store store = new Store();
     private static Cart cart = new Cart();
-    
-	public static void main(String[] args) {
-		
-		// Init add media to the store
-		initSetup();
-		
-		new StoreScreen(store, cart);
-		
-	}
+
+    public static void main(String[] args) {
+        initSetup();
+        new StoreScreen(store, cart);
+    }
 	
 	
 	// Clear Console

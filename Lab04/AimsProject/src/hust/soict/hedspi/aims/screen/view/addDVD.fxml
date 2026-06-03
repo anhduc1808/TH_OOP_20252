@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10" padding="20" prefWidth="400" prefHeight="300">
+    <Label text="Add DVD" style="-fx-font-size: 20px;"/>
+    <Label text="Title:"/>
+    <TextField fx:id="tfTitle"/>
+    <Label text="Category:"/>
+    <TextField fx:id="tfCategory"/>
+    <Label text="Director:"/>
+    <TextField fx:id="tfDirector"/>
+    <Label text="Length:"/>
+    <TextField fx:id="tfLength"/>
+    <Label text="Cost:"/>
+    <TextField fx:id="tfCost"/>
+    <Button text="Add DVD" onAction="#addDVDPressed"/>
+</VBox>

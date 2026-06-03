@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.hedspi.javafx.PainterController"
+    prefWidth="640" prefHeight="480" padding="8">
+    <left>
+        <VBox spacing="8" maxHeight="Infinity">
+            <TitledPane text="Tools">
+                <content>
+                    <VBox spacing="4">
+                        <fx:define>
+                            <ToggleGroup fx:id="tools"/>
+                        </fx:define>
+                        <RadioButton text="Pen" selected="true" toggleGroup="$tools"/>
+                        <RadioButton text="Eraser" toggleGroup="$tools"/>
+                    </VBox>
+                </content>
+            </TitledPane>
+            <Button text="Clear" onAction="#clearButtonPressed" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+    <center>
+        <Pane fx:id="drawingAreaPane" 
+            style="-fx-background-color: white;"
+            onMouseDragged="#drawingAreaMouseDragged"/>
+    </center>
+</BorderPane>
